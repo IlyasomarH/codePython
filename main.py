@@ -156,13 +156,86 @@ eleve1=eleves('ilyas', 'pk12', 'M', 'design graphique', {'wireframme':12, 'maque
 eleve2=eleves('fathia Abdo ', 'pk12', 'f', 'maintenance', {'pc' : 10, 'fixe': 18, 'logiciel': 19})
 eleve3=eleves('youssouf Abdo ', 'Q1', 'M', 'maintenance', {'pc' : 19, 'fixe': 18, 'logiciel': 19})
 
-print(eleve1)
-print()
-print(eleve2)
-print()
-print(eleve3)
+# print(eleve1)
+# print()
+# print(eleve2)
+# print()
+# print(eleve3)
 
 
 # print( eleve['matiere']['HTML5etcss3']) 
 
 # print(eleve2)
+
+
+
+
+class Personne:
+    def __init__(self, nom, adresse, fonction, genre ):
+        self.name=nom
+        self.address= adresse
+        self.fonction=fonction
+        self.genre=genre
+    def affichage(self):
+        print(f" Nom: {self.name} adresse: {self.address} fonction : {self.fonction}   genre: {self.genre}")
+        #print(" Nom: ",self.name , "  adresse: ", self.address, "fonction :", self.fonction, "   genre :", self.genre)
+
+class Eleve(Personne):
+    def __init__(self,nom, adresse, fonction, genre , matiere, formation):
+        super().__init__(nom, adresse, fonction, genre)
+        self.matiere=matiere
+        self.formation=formation
+    def affichage(self):
+        super().affichage()
+        # matiere1= (', ').join(self.matiere)
+        print(f'matiere: {self.matiere}, formation: {self.formation} ')
+    def moyenne(self):
+        somme=0
+        taille=len(self.matiere)  
+        for i in self.matiere:
+            #print(self.matiere[i])
+            somme+=self.matiere[i]
+        return somme/taille 
+		
+class Personnel(Personne):
+    def __init__(self, nom, adresse, fonction, genre, passWord):
+        super().__init__(nom, adresse, fonction, genre)
+        self.passWord=passWord
+    def affichage(self):
+        super().affichage()
+        print(f' Pass Word : {self.passWord}')
+     
+     
+		
+
+	 
+
+
+personne=Personne('Ilyas', 'Balbala', 'Formateur', 'M')
+
+personne2=Personne('AbdiNasser', 'Q6', 'Formateur', 'M')
+#personne3= Personne('Neima', 'Q7', 'etudiante', 'F')
+
+# personne.affichage()
+# personne2.affichage()
+#personne3.affichage()
+
+
+eleve1=Eleve('Neima', 'Q7', 'etudiante', 'F', {'HTML5&CSS3':15, 'GIT&GITHUB':16, 'FIGMA':5}, 'Programmation')
+# eleve1.affichage()
+
+print(eleve1.moyenne())
+
+
+personnel1= Personnel('AbdiNasser', 'Q6', 'DG', 'M', "12345")
+# personnel1.affichage()
+
+
+
+
+
+
+
+
+
+
